@@ -1,0 +1,30 @@
+{# Template pour la page liste des domaines #}
+{# ---------------------------------------- #}
+
+{% extends 'ulmolistes.html.twig' %}
+
+{% block Intro %}
+    <h2>Liste des domaines du site www.ulmo.net</h2>
+    <a id="Ajouter" href="/admin/domaine/detail">Ajouter un domaine</a>
+    <a id="Sauvegarder" href="">Sauvegarder les modifications</a>
+    <a id="Annuler" href="" onclick="location.reload();">Annuler les modifications</a>
+{% endblock %}
+
+{% block Domaines %}
+    {% for domaine in domaines %}
+	<tr id="LigneDomaine{{ loop.index }}" data-ulmoposition="{{ loop.index }}">
+{#             <td>{{ domaine.numOrdre }}</td> #}
+            <td>
+                <img id="imgModif{{ loop.index }}" onclick="Modif({{ loop.index }});" src="/ressources/images/iconeModif.png" border="0">
+                <img id="imgDelete{{ loop.index }}" onclick="Delete({{ loop.index }});" src="/ressources/images/iconeDelete.png" border="0">
+                <img id="imgUp{{ loop.index }}" onclick="Up({{ loop.index }});" src="/ressources/images/iconeUp.png" border="0">
+                <img id="imgDown{{ loop.index }}" onclick="Down({{ loop.index }});" src="/ressources/images/iconeDown.png" border="0">
+            </td>
+            <td>{{ domaine.libelle }}</td>
+            <td>{{ domaine.titre }}</td>
+            <td>{{ domaine.description }}</td>
+            <td>{{ domaine.icone }}</td>
+            <td>{{ domaine.fondEcran }}</td>
+	</tr>
+    {% endfor %}
+{% endblock %}

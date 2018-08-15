@@ -1,0 +1,38 @@
+{# templates/ulmolistes.html.twig #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+		<title>{% block title %}Ulmo - construction et restauration de modèles réduits navals{% endblock %}</title>
+
+		<!----- FEUILLE DE STYLES -->
+		{% block style %}<link rel="stylesheet" href="/ressources/style/stylesheet.css">{% endblock %}
+
+		<!----- SCRIPTS JAVASCRIPTS -->
+		{% block javascript %}<script language="javascript" src="/ressources/javascripts/scripts.js"></script>{% endblock %}
+    </head>
+    <body>
+        <div id="bandeau">
+            {% block bandeau %}<img src="/ressources/images/bandeau.png" border="0">{% endblock %}
+        </div>
+        <div id="logout"><a href="/logout">Déconnexion</a><br /></div>
+
+	{% block Intro %}{% endblock %}
+	
+        <table><tbody id="TableListe">
+		<tr id="LigneTitres">
+<!--                    <td>Ordre</td> -->
+                    <td>Action</td>
+                    <td>Domaine</td>
+                    <td>titre</td>
+                    <td>description</td>
+                    <td>icone</td>
+                    <td>fondEcran</td>
+		</tr>
+		{% block Domaines %}{% endblock %}
+        </tbody></table>
+        <script src="/ressources/javascript/jquery.js"></script>
+	<script src="/ressources/javascript/ulmoliste.js"></script>
+	</body>
+</html>
